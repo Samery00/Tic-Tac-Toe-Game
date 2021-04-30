@@ -1,9 +1,10 @@
 body {
     background: #2D3142;
+    color: honeydew;
 }
 
 td {
-    border: 2px solid rgb(133, 176, 231);
+    border: 3px solid rgb(133, 176, 231);
     height: 120px;
     width: 120px;
     text-align: center;
@@ -21,10 +22,7 @@ td {
 
 table {
     border-collapse: collapse;
-    //position: absolute;
-    //left: 50%;
-    margin-left: 35%;
-    top: 100px;
+    margin: 0 auto;
 }
 
 table tr:first-child td {
@@ -47,7 +45,7 @@ table tr td:last-child {
     display: none;
     width: 200px;
     top: 120px;
-    background-color: rgba(205, 133, 63, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
     left: 50%;
     margin-left: -100px;
@@ -55,49 +53,36 @@ table tr td:last-child {
     padding-bottom: 50px;
     text-align: center;
     border-radius: 5px;
-    color: white;
     font-size: 2em;
     margin-top: 50px;
 }
 
+.buttons {
+    position: relative;
+}
+
 button {
-    display: inline-flex;
-    height: 40px;
+    display: block;
+    height: 50px;
     width: 120px;
     border: 3px solid rgb(133, 176, 231);
-    margin: 10px 10px 10px 10px;
-    color: rgb(1, 22, 46);
     text-transform: uppercase;
     text-decoration: none;
-    font-size: .8em;
-    letter-spacing: 1px;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-left: 45%;
-    /*margin-top: 150px;*/
-    background-color: orangered;
-}
+    color: honeydew;
+    background-color: darkred;
+    font-weight: bold;
 
-a {
-    display: inline-flex;
-    height: 40px;
-    width: 115px;
-    border: 3px solid rgb(133, 176, 231);
-    margin: 10px 10px 10px 10px;
-    color: rgb(1, 22, 46);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: .8em;
-    letter-spacing: 1px;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-left: 45%;
-    /*margin-top: 150px;*/
-    background-color: orangered
+    margin: 0;
+    margin-top: 10px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
-
 
 /*.copy {
     padding-block: 8px;
