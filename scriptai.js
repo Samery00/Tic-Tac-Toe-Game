@@ -1,4 +1,5 @@
 var origBoard;
+var computerAI = false; /* computer ai is disabled now */
 const humanPlayer = 'O';
 const computerPlayer = 'X';
 const winCombinations = [
@@ -13,9 +14,10 @@ const winCombinations = [
 ]
 
 const cells = document.querySelectorAll('.cell');
-startGame();
+startGame({ai:false});
 
-function startGame() {
+function startGame({ai}) {
+    computerAI = ai
     document.querySelector(".endgame").style.display = "none";
     origBoard = Array.from(Array(9).keys());
     for (var i = 0; i < cells.length; i++) {
@@ -55,7 +57,7 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
     for (let index of winCombinations[gameWon.index]) {
         document.getElementById(index).style.backgroundColor =
-            gameWon.player == humanPlayer ? "blue" : "red";
+            gameWon.player == humanPlayer ? "#118AB2" : "#EF476F"; // blue : pink
     }
     for (var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener('click', turnClick, false);
@@ -73,13 +75,20 @@ function emptySquares() {
 }
 
 function bestSpot() {
-    return minimax(origBoard, computerPlayer).index;
+    if (computerAI)
+        return minimax(origBoard, computerPlayer).index;
+    else {
+        // peek random desicion if computer ai is disabled
+        let emptys = emptySquares()
+        let index  = (Math.random() * 1000000).toFixed() % emptys.length
+        return emptys[index]
+    }
 }
 
 function checkTie() {
     if (emptySquares().length == 0) {
         for (var i = 0; i < cells.length; i++) {
-            cells[i].style.backgroundColor = "green";
+            cells[i].style.backgroundColor = "#06D6A0"; // nice green
             cells[i].removeEventListener('click', turnClick, false);
         }
         declareWinner("Tie Game!")

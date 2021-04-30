@@ -29,8 +29,11 @@
     <div class="endgame">
         <div class="text"></div>
     </div><br><br>
-    <button class='button' onclick="startGame()"> Another Round</button>
-    <a class='button' href='startgame.html'> Back </button>
+    <div class="buttons">
+        <button class='button' onclick="startGame({ai:false})">Play vs Random</button>
+        <button class='button' onclick="startGame({ai:true})">Play vs AI</button>
+    </div>
+    
     <script src="scriptai.js"></script><br>
 
 </body>
